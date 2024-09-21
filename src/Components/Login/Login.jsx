@@ -37,7 +37,7 @@ const Login = () => {
                 <a href="#">Esqueceu a Senha?</a>
             </div>
             
-            <button>Entrar</button>
+            <button className='button-login'>Entrar</button>
 
             <div className="signup-link">
                 <p>Não tem uma conta? <a href="#">Registre-se!</a></p>

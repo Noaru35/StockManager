@@ -1,16 +1,16 @@
 .container{
     width: 450px;
-    background-color: rgba(240, 248, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(240, 248, 255, 0.2);
+    background-color: #F8F8F8;
     padding: 40px;
     border-radius: 20px;
+    box-shadow: 0px 0px 20px #a3a3a3;
 }
 
 .container h1 {
     text-align: center;
     font-size: 30px;
-    color: aliceblue;
+    color: rgb(44, 47, 49);
+    text-shadow: none;
 }
 
 .container .input-field{
@@ -23,17 +23,18 @@
 .input-field input {
     width: 100%;
     height: 100%;
-    background-color: transparent;
+    background-color: rgb(253, 254, 255);
     outline: none;
-    border: 2px solid rgba(240, 248, 255, 0.2);
+    border: 2px solid #1F1F1F;
     border-radius: 40px;
     font-size: 16px;
-    color: rgb(255, 255, 255);
+    color: rgb(113, 122, 139);
     padding: 20px 25px;
 }
 
 .input-field input::placeholder{
-    color: aliceblue;
+    color: rgb(65, 73, 80);
+    text-shadow: none;
 }
 
 .input-field .icon{
@@ -42,5 +43,65 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 18px;
-    color: aliceblue;
+    color: rgb(51, 59, 66);
 }
+
+.container .recall-forget{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.recall-forget label{
+    color: #7A6F6F;
+    text-shadow: none;
+}
+.recall-forget input{
+    margin-right: 5px;
+}
+.recall-forget a{
+    color: #4B31FF;
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: bold;
+}
+.recall-forget a:hover, .signup-link p a:hover{
+    text-decoration: underline;
+}
+
+.button-login {
+    margin-left: 20%;
+    background-color: #4B31FF;
+    margin-bottom: 5px;
+    font-size: 16px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(240, 248, 255, 0.1);
+    cursor: pointer;
+    font-weight: 600;
+    text-shadow: none;
+    color: #FFFFFF;
+}
+
+.container .signup-link{
+    font-size: 15px;
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.signup-link p a{
+    color: #4B31FF;
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.signup-link p{
+    color: #7A6F6F;
+    text-shadow: none;
+}
+
+
