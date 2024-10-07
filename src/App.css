@@ -1,0 +1,80 @@
+/* Estilos para a Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar h1 {
+  color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.login-register {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: white;
+  right: 0;
+  top: 30px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.dropdown form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown label {
+  margin-bottom: 5px;
+}
+
+/* Estilos para a página de registro */
+.register-page {
+  padding: 20px;
+}
+
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.register-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilos para a página inicial */
+.home-page section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.home-page section img {
+  max-width: 300px;
+  margin: 0 20px;
+}
+
+.home-page section .text {
+  flex: 1;
+}
+
+.home-page section:nth-child(even) {
+  flex-direction: row-reverse;
+}

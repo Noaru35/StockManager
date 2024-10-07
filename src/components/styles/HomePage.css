@@ -1,0 +1,47 @@
+/* Estilos para a página inicial (HomePage.css) */
+.home-page {
+  padding: 50px;
+  background-color: #f8f5fc; /* Cor de fundo clara */
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.text {
+  max-width: 50%;
+}
+
+.text h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.highlight-black {
+  color: black;
+}
+
+.highlight-purple {
+  color: #7e42b4; /* Cor roxa do título */
+}
+
+.text p {
+  font-size: 1.2rem;
+  color: #666; /* Cor do parágrafo em cinza */
+}
+
+.image-example {
+  width: 30%; /* Ajuste a imagem para 30% do container */
+  background-color: #eaeaea; /* Cor de fundo da imagem (cinza claro) */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Seção alternada */
+section:nth-child(even) {
+  flex-direction: row-reverse;
+}

@@ -1,0 +1,72 @@
+.register-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Para ajustar abaixo da Navbar */
+    background-color: #f8f5fc;
+    padding-top: 80px; /* Espaço para a Navbar */
+  }
+  
+  form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #aaa; /* Borda mais escura */
+    width: 100%;
+    max-width: 350px; /* Formulário menor */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  form h2 {
+    color: #6a3093;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form input[type="date"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444; /* Borda mais escura */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  form input::placeholder {
+    color: #aaa; /* Placeholder em cinza */
+  }
+  
+  form .name-fields {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  form .name-fields input {
+    width: 48%;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  form button {
+    background-color: #6a3093;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  form button:hover {
+    background-color: #57227c;
+  }
+  
