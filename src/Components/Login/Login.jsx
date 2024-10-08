@@ -2,7 +2,7 @@
 import { FaUser, FaLock, FaGoogle, FaFacebook, FaPhone } from 'react-icons/fa';
 import { useState } from 'react';
 import { auth, GoogleAuthProvider, FacebookAuthProvider } from '../../Firebase/firebase';
-import { signInWithPopup, RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import { signInWithPopup, RecaptchaVerifier, signInWithPhoneNumber, signInWithEmailAndPassword } from 'firebase/auth';
 import './Login.css';
 
 const Login = () => {
@@ -43,20 +43,41 @@ const Login = () => {
             const result = await signInWithPopup(auth, provider);
             alert(`${providerType} login realizado com sucesso!`);
         } catch (error) {
-            console.error(error);
+            console.error('Erro ao realizar login:', error);
+            alert('Erro ao realizar login: ' + (error.code === 'auth/unauthorized-domain' ? 'Domínio não autorizado. Verifique as configurações do Firebase.' : error.message));
+        }
+    };
+
+    const handleEmailLogin = async (e) => {
+        e.preventDefault();
+        const trimmedEmail = username.trim();
+        const trimmedPassword = password.trim();
+
+        if (!trimmedEmail || !trimmedPassword) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        try {
+            console.log('Tentando fazer login com:', trimmedEmail); // Para debugar
+            await signInWithEmailAndPassword(auth, trimmedEmail, trimmedPassword);
+            alert('Login realizado com sucesso!');
+        } catch (error) {
+            console.error('Erro ao realizar login:', error);
             alert('Erro ao realizar login: ' + error.message);
         }
     };
 
     return (
         <div className="container">
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={handleEmailLogin}>
                 <h1>Acesse o Sistema</h1>
                 <div className="input-field">
                     <input 
                         type="email" 
                         placeholder="Email" 
                         onChange={(e) => setUsername(e.target.value)} 
+                        required 
                     />
                     <FaUser className="icon" />
                 </div>
@@ -65,6 +86,7 @@ const Login = () => {
                         type="password" 
                         placeholder="Senha" 
                         onChange={(e) => setPassword(e.target.value)} 
+                        required 
                     />
                     <FaLock className="icon" />
                 </div>
@@ -82,8 +104,9 @@ const Login = () => {
                 </div>
                 <div id="recaptcha-container"></div>
                 <div className="signup-link">
-                    <p>Não tem uma conta? <a href="#">Registre-se!</a></p>
+                    <p>Não tem uma conta? <a href="/register">Registre-se!</a></p>
                 </div>
+
             </form>
         </div>
     );
