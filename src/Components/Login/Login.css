@@ -1,79 +1,100 @@
-/* src/Components/Login/Login.css */
-.container {
-    width: 350px; /* Largura do formulário */
-    background-color: #F8F8F8;
-    padding: 30px; /* Padding do formulário */
-    border-radius: 20px;
-    box-shadow: 0px 0px 20px #a3a3a3;
-    margin: auto; /* Centraliza o formulário */
-    display: flex; /* Flex para centralizar */
-    flex-direction: column; /* Direção em coluna */
-    justify-content: center; /* Centraliza verticalmente */
+/* Container principal de login */
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    background-color: #f4f4f9;
 }
 
-.container h1 {
+/* Caixa de login */
+.login-box {
+    width: 400px;
+    height: 100%;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 70px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h1 {
+    margin-top: 70%;
     text-align: center;
-    font-size: 28px; /* Tamanho da fonte do título */
-    color: rgb(44, 47, 49);
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #3b3b3b;
 }
 
+/* Campo de entrada */
 .input-field {
     position: relative;
-    width: 100%; /* Garantindo que ocupe toda a largura */
-    margin: 15px 0; /* Reduzido o margin */
+    margin-bottom: 20px;
 }
 
 .input-field input {
-    width: 100%; /* Largura do input ajustada */
-    height: 40px; /* Diminuído para 40px */
-    background-color: rgb(253, 254, 255);
-    border: 2px solid #1F1F1F;
-    border-radius: 20px; /* Reduzido o border-radius */
-    padding: 10px; /* Padding ajustado */
-    font-size: 14px; /* Tamanho da fonte reduzido */
-    box-sizing: border-box; /* Para incluir padding e border no tamanho total */
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* Altera o padding: 40px à direita para o ícone */
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    outline: none;
 }
 
-.icon {
+/* Ícone ao final do input */
+.input-field .icon {
     position: absolute;
-    right: 15px; /* Ajustado para corresponder ao tamanho do input */
     top: 50%;
+    right: 15px; /* Agora à direita do input */
     transform: translateY(-50%);
+    color: #3b3b3b;
 }
 
+/* Botão de login */
 .button-login {
     width: 100%;
-    background-color: #4B31FF;
-    border: none;
-    border-radius: 20px; /* Reduzido o border-radius */
     padding: 10px;
-    color: white;
+    background-color: #4B31FF;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Login social */
+.social-login-container {
+    display: flex; /* Faz com que os itens dentro do contêiner fiquem lado a lado */
+    justify-content: space-between; /* Adiciona espaço uniforme entre os botões */
+    margin-top: 20px;
 }
 
 .social-login {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px; /* Ajustado para o espaço superior */
-}
-
-.social-login button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 30%;
     padding: 10px;
     background-color: #e0e0e0;
     border: none;
-    border-radius: 5px;
-    margin: 5px 0;
+    border-radius: 10%;
     cursor: pointer;
-}
-
-.social-login button:hover {
-    background-color: #d0d0d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-login button svg {
-    margin-right: 8px; /* Espaço entre ícone e texto */
+    font-size: 20px;
+}
+
+/* Link de cadastro */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #4B31FF;
+    text-decoration: none;
+    font-weight: bold;
 }

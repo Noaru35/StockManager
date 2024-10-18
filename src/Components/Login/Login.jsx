@@ -69,45 +69,41 @@ const Login = () => {
     };
 
     return (
-        <div className="container">
-            <form onSubmit={handleEmailLogin}>
-                <h1>Acesse o Sistema</h1>
-                <div className="input-field">
-                    <input 
-                        type="email" 
-                        placeholder="Email" 
-                        onChange={(e) => setUsername(e.target.value)} 
-                        required 
-                    />
-                    <FaUser className="icon" />
+        <div className="login-container">
+            <div className="login-box">
+                <h1>Login</h1>
+                <form onSubmit={handleEmailLogin}>
+                    <div className="input-field">
+                        <FaUser className="icon" />
+                        <input 
+                            type="email" 
+                            placeholder="Usuário" 
+                            onChange={(e) => setUsername(e.target.value)} 
+                            required 
+                        />
+                    </div>
+                    <div className="input-field">
+                        <FaLock className="icon" />
+                        <input 
+                            type="password" 
+                            placeholder="Senha" 
+                            onChange={(e) => setPassword(e.target.value)} 
+                            required 
+                        />
+                    </div>
+                    <button className='button-login'>Login</button>
+                </form>
+                <div className="social-login-container">
+                    <button className='social-login' type="button" onClick={() => handleSocialLogin('Google')}><FaGoogle /></button>
+                    <button className='social-login' type="button" onClick={() => handleSocialLogin('Facebook')}><FaFacebook /></button>
+                    <button className='social-login' type="button" onClick={() => handleSocialLogin('Telefone')}><FaPhone /></button>
                 </div>
-                <div className="input-field">
-                    <input 
-                        type="password" 
-                        placeholder="Senha" 
-                        onChange={(e) => setPassword(e.target.value)} 
-                        required 
-                    />
-                    <FaLock className="icon" />
-                </div>
-                <button className='button-login'>Entrar</button>
-                <div className="social-login">
-                    <button type="button" onClick={() => handleSocialLogin('Google')}>
-                        <FaGoogle /> Login com Google
-                    </button>
-                    <button type="button" onClick={() => handleSocialLogin('Facebook')}>
-                        <FaFacebook /> Login com Facebook
-                    </button>
-                    <button type="button" onClick={() => handleSocialLogin('Telefone')}>
-                        <FaPhone /> Login com Telefone
-                    </button>
-                </div>
-                <div id="recaptcha-container"></div>
+
                 <div className="signup-link">
                     <p>Não tem uma conta? <a href="/register">Registre-se!</a></p>
                 </div>
-
-            </form>
+            </div>
+            <div id="recaptcha-container"></div>
         </div>
     );
 };
