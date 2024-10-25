@@ -1,52 +1,15 @@
 // src/Components/Login/Login.jsx
-import { FaUser, FaLock, FaGoogle, FaFacebook, FaPhone } from 'react-icons/fa';
+import { FaUser, FaLock } from 'react-icons/fa';
 import { useState } from 'react';
-import { auth, GoogleAuthProvider, FacebookAuthProvider } from '../../Firebase/firebase';
-import { signInWithPopup, RecaptchaVerifier, signInWithPhoneNumber, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../Firebase/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 import './Login.css';
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-    // Configuração do reCAPTCHA
-    const setupRecaptcha = () => {
-        window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-            'size': 'invisible',
-            'callback': (response) => {
-                // A reCAPTCHA foi resolvida
-            },
-            'expired-callback': () => {
-                // A reCAPTCHA expirou
-            }
-        }, auth);
-    };
-
-    const handleSocialLogin = async (providerType) => {
-        try {
-            let provider;
-            if (providerType === 'Google') {
-                provider = new GoogleAuthProvider();
-            } else if (providerType === 'Facebook') {
-                provider = new FacebookAuthProvider();
-            } else if (providerType === 'Telefone') {
-                const phoneNumber = prompt('Digite seu número de telefone (com DDD):');
-                setupRecaptcha(); // Configura o reCAPTCHA
-                const appVerifier = window.recaptchaVerifier;
-                const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
-                const code = prompt('Digite o código de confirmação enviado para o seu telefone:');
-                await confirmationResult.confirm(code);
-                alert('Login com telefone realizado com sucesso!');
-                return;
-            }
-
-            const result = await signInWithPopup(auth, provider);
-            alert(`${providerType} login realizado com sucesso!`);
-        } catch (error) {
-            console.error('Erro ao realizar login:', error);
-            alert('Erro ao realizar login: ' + (error.code === 'auth/unauthorized-domain' ? 'Domínio não autorizado. Verifique as configurações do Firebase.' : error.message));
-        }
-    };
+    const navigate = useNavigate(); // Criar uma instância do useNavigate
 
     const handleEmailLogin = async (e) => {
         e.preventDefault();
@@ -62,6 +25,7 @@ const Login = () => {
             console.log('Tentando fazer login com:', trimmedEmail); // Para debugar
             await signInWithEmailAndPassword(auth, trimmedEmail, trimmedPassword);
             alert('Login realizado com sucesso!');
+            navigate('/dashboard'); // Redirecionar para o Dashboard
         } catch (error) {
             console.error('Erro ao realizar login:', error);
             alert('Erro ao realizar login: ' + error.message);
@@ -71,6 +35,7 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className="login-box">
+                <div className="login-form">
                 <h1>Login</h1>
                 <form onSubmit={handleEmailLogin}>
                     <div className="input-field">
@@ -93,17 +58,11 @@ const Login = () => {
                     </div>
                     <button className='button-login'>Login</button>
                 </form>
-                <div className="social-login-container">
-                    <button className='social-login' type="button" onClick={() => handleSocialLogin('Google')}><FaGoogle /></button>
-                    <button className='social-login' type="button" onClick={() => handleSocialLogin('Facebook')}><FaFacebook /></button>
-                    <button className='social-login' type="button" onClick={() => handleSocialLogin('Telefone')}><FaPhone /></button>
                 </div>
-
                 <div className="signup-link">
                     <p>Não tem uma conta? <a href="/register">Registre-se!</a></p>
                 </div>
             </div>
-            <div id="recaptcha-container"></div>
         </div>
     );
 };

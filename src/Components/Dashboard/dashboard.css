@@ -1,0 +1,76 @@
+.dashboard-sidebar {
+    width: 80px; /* Ajusta a largura da sidebar conforme a imagem anterior */
+    background-color: #3b0b57; /* Cor de fundo semelhante à da imagem */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribui o espaço entre os elementos */
+    align-items: center; /* Centraliza horizontalmente */
+    padding: 20px 0;
+}
+
+.dashboard-items {
+    width: 100%; /* Faz com que os itens ocupem toda a largura */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens */
+}
+
+.dash-list {
+    list-style: none; /* Remove os marcadores */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.sidebar-logo {
+    width: 50px; /* Ajuste a largura da logo para se adequar à barra lateral */
+    margin-bottom: 30px;
+}
+
+.sidebar-button {
+    background: none;
+    border: none;
+    color: #ffffff; /* Cor dos ícones */
+    font-size: 24px;
+    cursor: pointer;
+    margin: 20px 0; /* Ajusta o espaçamento entre os botões */
+    display: flex;
+    justify-content: center; /* Centraliza os ícones */
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar-button:hover {
+    color: #3498db; /* Cor ao passar o mouse */
+}
+
+/* Estilizando o popup */
+.popup {
+    position: absolute;
+    left: 90px; /* Para aparecer ao lado direito do botão */
+    top: calc(100% - 120px); /* Ajusta a posição vertical */
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup p {
+    margin: 0;
+    cursor: pointer;
+    color: #333;
+}
+
+.popup p:hover {
+    color: #e74c3c; /* Cor ao passar o mouse sobre o texto */
+}

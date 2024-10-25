@@ -1,25 +1,25 @@
 /* Container principal de login */
 .login-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Mantém o formulário à esquerda */
     align-items: center;
     height: 100vh;
-    padding: 0;
     background-color: #f4f4f9;
+    padding: 0 20px; /* Adiciona um padding lateral para evitar que o conteúdo fique colado na borda */
 }
 
 /* Caixa de login */
 .login-box {
-    width: 400px;
+    width: 100%;
     height: 100%;
+    max-width: 400px; /* Limite máximo de largura */
     padding: 40px;
+    margin-left: -35px;
     background-color: #fff;
-    border-radius: 70px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 .login-box h1 {
-    margin-top: 70%;
     text-align: center;
     margin-bottom: 30px;
     font-size: 24px;
@@ -34,7 +34,7 @@
 
 .input-field input {
     width: 100%;
-    padding: 10px 40px 10px 10px; /* Altera o padding: 40px à direita para o ícone */
+    padding: 10px;
     font-size: 14px;
     border: 2px solid #e0e0e0;
     border-radius: 5px;
@@ -45,7 +45,7 @@
 .input-field .icon {
     position: absolute;
     top: 50%;
-    right: 15px; /* Agora à direita do input */
+    right: 15px;
     transform: translateY(-50%);
     color: #3b3b3b;
 }
@@ -63,29 +63,6 @@
     font-size: 16px;
 }
 
-/* Login social */
-.social-login-container {
-    display: flex; /* Faz com que os itens dentro do contêiner fiquem lado a lado */
-    justify-content: space-between; /* Adiciona espaço uniforme entre os botões */
-    margin-top: 20px;
-}
-
-.social-login {
-    width: 30%;
-    padding: 10px;
-    background-color: #e0e0e0;
-    border: none;
-    border-radius: 10%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-login button svg {
-    font-size: 20px;
-}
-
 /* Link de cadastro */
 .signup-link {
     text-align: center;
@@ -97,4 +74,27 @@
     color: #4B31FF;
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 0 10px; /* Reduz o padding lateral em telas menores */
+    }
+
+    .login-box {
+        padding: 20px; /* Reduz o padding da caixa de login */
+    }
+
+    .login-box h1 {
+        font-size: 20px; /* Ajusta o tamanho da fonte do título */
+    }
+
+    .input-field input {
+        font-size: 16px; /* Aumenta o tamanho do texto para facilitar a digitação */
+    }
+
+    .button-login {
+        font-size: 14px; /* Ajusta o tamanho do botão */
+    }
 }
