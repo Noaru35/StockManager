@@ -36,7 +36,8 @@ const Login = () => {
         <div className="login-container">
             <div className="login-box">
                 <div className="login-form">
-                <h1>Login</h1>
+                <img src="src\assets\logo.png" alt="Stock&Cash" />
+                <h1 className="login-header">STOCK&CASH</h1>
                 <form onSubmit={handleEmailLogin}>
                     <div className="input-field">
                         <FaUser className="icon" />
@@ -63,6 +64,10 @@ const Login = () => {
                     <p>Não tem uma conta? <a href="/register">Registre-se!</a></p>
                 </div>
             </div>
+            <div className="stock-Image">
+                <img src="src\assets\proIMG.png" alt="Stock&Cash" />
+            </div>
+            
         </div>
     );
 };
