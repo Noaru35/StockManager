@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaPlus, FaHome, FaListUl, FaClipboard, FaCog } from 'react-icons/fa';
 import './Dashboard.css';
+import { Link } from 'react-router-dom'; // Importe o Link no início do arquivo
 
 const Dashboard = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -38,9 +39,9 @@ const Dashboard = () => {
                         </button>
                     </li>
                     <li>
-                        <button className='sidebar-button'>
+                        <Link to="/fornecedores" className='sidebar-button'> {/* Link para Fornecedores */}
                             <FaClipboard />
-                        </button>
+                        </Link>
                     </li>
                 </ul>
             </div>
